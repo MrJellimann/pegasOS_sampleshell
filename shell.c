@@ -322,7 +322,7 @@ User createUser(char name[], char pass[])
 	return u;
 }
 
-void newUser()
+int newUser()
 {
 	char tUser[MAX_INPUT_LENGTH];
 	char tPass[MAX_INPUT_LENGTH];
@@ -334,6 +334,7 @@ void newUser()
 	fflush(stdin);
 
 	// Get Username
+	printf("\n");
 	printf("    Enter your username: ");
 	fgets(tUser, MAX_INPUT_LENGTH, stdin);
 	for (int i = 0; i < strlen(tUser); i++)
@@ -370,7 +371,8 @@ void newUser()
 	{
 		registry[numUsers++] = createUser(tUser, tPass);
 		currentUser = registry[numUsers-1];
-		printf("    New user '%s' created!\n", tUser);
+		printf("    New user '%s' created!\n\n", tUser);
+		return 1;
 	}
 	else
 	{
@@ -389,6 +391,7 @@ void newUser()
 					fflush(stdin);
 
 					// Get Password
+					printf("\n");
 					printf("    Enter your password: ");
 					printf("\033[38;5;0m");
 					fgets(tPass, MAX_INPUT_LENGTH, stdin);
@@ -414,11 +417,13 @@ void newUser()
 					{
 						registry[numUsers++] = createUser(tUser, tPass);
 						currentUser = registry[numUsers-1];
-						printf("    New user '%s' created!\n", tUser);
+						printf("    New user '%s' created!\n\n", tUser);
+						return 1;
 					}
 					else
 					{
 						printf("    Password does not match. Failed to create user '%s'.\n", tUser);
+						return 0;
 					}
 					break;
 				case 'n':
@@ -437,9 +442,11 @@ void newUser()
 		printf("Debug: %s\n", tPass);
 		printf("Debug: %s\n", cPass);
 	}
+
+	return 0;
 }
 
-void existingUser()
+int existingUser()
 {
 	char tUser[MAX_INPUT_LENGTH];
 	char tPass[MAX_INPUT_LENGTH];
@@ -450,6 +457,7 @@ void existingUser()
 	fflush(stdin);
 
 	// Get Username
+	printf("\n");
 	printf("    Enter username: ");
 	fgets(tUser, MAX_INPUT_LENGTH, stdin);
 	for (int i = 0; i < strlen(tUser); i++)
@@ -482,7 +490,7 @@ void existingUser()
 			switch (select)
 			{
 				case 'y':
-					newUser();
+					return newUser();
 					break;
 				case 'n':
 					printf("    User '%s' not created.\n\n", tUser);
@@ -508,11 +516,12 @@ void existingUser()
 		if (strcmp(t.pass, tPass) == 0)
 		{
 			currentUser = t;
-			printf("    User '%s' logged in successfully!\n", tUser);
+			printf("    User '%s' logged in successfully!\n\n", tUser);
+			return 1;
 		}
 		else
 		{
-			printf("    Password does not match. Log-in attempt failed.\n");
+			printf("    Password does not match. Log-in attempt failed.\n\n");
 		}
 	}
 
@@ -521,6 +530,8 @@ void existingUser()
 		printf("Debug: %s\n", tUser);
 		printf("Debug: %s\n", tPass);
 	}
+
+	return 0;
 }
 
 void printRegistry()
@@ -535,10 +546,8 @@ void printRegistry()
 	{
 		printMenuOption(registry[i].user);
 
-		if (i < numUsers-1)
+		if (i >= numUsers-1)
 			printf("\n");
-		else
-			printf("\n\n");
 	}
 }
 
@@ -548,6 +557,7 @@ void login()
 	char tUser[MAX_INPUT_LENGTH];
 	char tPass[MAX_INPUT_LENGTH];
 	char cPass[MAX_INPUT_LENGTH];
+	int exitFlag = 0;
 
 	do
 	{
@@ -558,10 +568,10 @@ void login()
 		switch (select)
 		{
 			case 'e': // Existing User
-				existingUser();
+				exitFlag = existingUser();
 				break;
 			case 'n': // New User
-				newUser();
+				exitFlag = newUser();
 				break;
 			case 'r': // Registry
 				printRegistry();
@@ -575,7 +585,7 @@ void login()
 				break;
 		}
 	}
-	while (select != 'q');
+	while (select != 'q' && !exitFlag);
 }
 
 void help()
