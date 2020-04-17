@@ -1,0 +1,46 @@
+\033[38;5;15m
+
+
+            `  ``  `  `` ``  `  ``  `  `` ``  `  ``  `  `` ``  `` ``  `  `` ``  `` ``
+          `` ``  `  ``  `  `` ``  `` ``  ``.-:-::---` ``  `  ``  `  `` ``  `  ``  `  
+            `` `` ``  `` ``  `  ``  `` `` -ddddddddd-`  `` ``  `  `` ``  `  ``  `  ``
+            `  `` ``  `` ``  `  ``  `  `` odddddddddo`  `` ``  `  ``  `  `` ``  `  ``
+          `` ``  `  ``  `  `` ``  `` ``  `ddddddddddh ``  `  ``  `  `` ``  `  ``  `  
+            `  ``  `  `` :sy/.  ``  `  ``:ddddddddddd-  `` ``  ``-ohs:`  `` ``  `` ``
+          `` ``  `` `` /hddddds:` `` `-:+hdddddddddddy+/.``  `-+hdddddh/`  `  ``  `  
+            `  `` `` :hddddddddddo:+yddddddddddddddddddddds+ohddddddddddy:` ``  `` ``
+            `  ``  ``yddddddddddddddddddddddddddddddddddddddddddddddddddds` ``  `` ``
+          `` ``  `  ``+ddddddddddddddddddddddddddddddddddddddddddddddddd/  `  ``  `  
+            `  ``  `  `-hdddddddddddddddddddddddddddddddddddddddddddddy. `` ``  `` ``
+          `` ``  `` ``  .sddddddddddddddddddddddddddddddddddddddddddd/ ``  `  ``  `  
+            `  ``  `  ```sddddddddddddddddddddddddddddddddddddddddddds`  `` ``  `` ``
+          ``  `  `  `` `ydddddddddddddddddddddhhhddddddddddddddddddddds``  `  ``  `  
+          `` ``  `` `` odddddddddddddddddho:.`  ``.:ohddddddddddddddddd+`  `  ``  `  
+            `  `` `.-:/ddddddddddddddddd/```  `  ``  `/dddddddddddddddddhsso+/:-.` ``
+          `` -yyhdddddddddddddddddddddh. `  ``  `  `` `-hdddddddddddddddddddddddd-`  
+            `+dddddddddddddddddddddddd/`` ``  `  ``  `  /dddddddddddddddddddddddd/ ``
+          `` odddddddddddddddddddddddd.  `  ``  `  `` ``.ddddddddddddddddddddddddo`  
+          `` odddddddddddddddddddddddd:  `      `  `   `:dddddddddddddddddddddddd+`  
+            `:syhdddddddddddddddddddddh.` ``  `  ``  ` .hddddddddddddddddddhyso++- ``
+          `` ``  `..:/+ddddddddddddddddh/`  ``  `  `` /hdddddddddddddddd:  `  ``  `  
+            `  ``  `  `ydddddddddddddddddh+:` `  ``-+hddddddddddddddddds `` ``  `` ``
+          `` ``  `  `` .hddddddddddddddddddddhyyhhddddddddddddddddddddh.`  `  ``  `  
+            `  `` ``  ``-hdddddddddddddddddddddddddddddddddddddddddddd.  `` ``  `  ``
+            `  ``  `  `` /dddddddddddddddddddddddddddddddddddddddddddds` `` ``  `` ``
+          `` ``  `  `` `oddddddddddddddddddddddddddddddddddddddddddddddh-  `  ``  `  
+            `  ``  `  :hddddddddddddddddddddddddddddddddddddddddddddddddd+` ``  `` ``
+          `` ``  `  `odddddddddddddddddddddddddddddddddddddddddddddddddddds`  ``  `  
+            `  ``  ``sdddddddddddsoydddddddddddddddddddddddy+-/ydddddddddo` ``  `` ``
+          `   `  `   `-sddddddy/` ```:+shdddddddddddddys+:`  `  ./hdddds- ```    ``` 
+          `` ``  `` ``  -ody/.``  `` ``  `+ddddddddddh``  `  `` `` -oo.``  `  ``  `  
+            `  ``  `  `` ``  `  ``  `  `` -dddddddddd+  `` ``  `  ``  `  `` ``  `` ``
+          `` ``  `` ``  `  `` ``  `` ``  ` hddddddddd.``  `  ``  `  `` ``  `  ``  `  
+            `  ``  `  `` ``  `  ``  `  `` `oddddddddy`  `` ``  `  ``  `  `` ``  `` ``
+          ``  `  `` ``  `  `` ``  `` ``  ` .+oooooo+- ``  `  `` ``  `` ``  `  ``  `  
+          `` ``  `  ``  `  `` ``  `` ``  `  ``  `  `` ``  `  `` ``  `` ``  `  ``  `  
+            `  ``  `  `` ``  `  ``  `  `` ``  `  ``  `  `` ``  `  ``  `  `` ``  `` ``
+          `` ``  `  ``  `  `` ``  `` ``  `  ``  `  `` ``  `  ``  `  `` ``  `  ``  `  
+
+
+
+\033[0m

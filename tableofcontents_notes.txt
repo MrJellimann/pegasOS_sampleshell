@@ -1,0 +1,41 @@
+notes
+
+PegasOS: Introduction, pg 4
+	Personal Motivation/Interests, pg 5
+	Broader Impacts, pg 7
+
+PegasOS: Legal, Ethical, and Technical, pg 9
+	Legal, Ethical, and Privacy Issues, pg 10
+		Legal - Licensing, pg 10
+		Legal - Source Code Usage
+		Legal - UCF and CECS Affiliation
+		Ethical & Privacy, pg 11
+	Technical Content, pg 12
+		Project Goal
+		Objectives
+		Specifications and Requirements
+			Must-Haves
+			Like-to-Haves, pg 13
+	Program and System Ideas/Decisions, pg 14
+		Group Ideas
+		Christopher's Ideas
+		Jacob's Ideas, pg 15
+		Giancarlo's Ideas
+		Jacqueline's Ideas
+		Kenny's Ideas
+	Research, Design, and Planning, pg 16
+		Design Overview
+		Cross-Compiler, pg 17
+			Setting Up the Build for the Cross-Compiler
+			Setting Up the Prebuilt Cross-Compiler, pg 18
+	Build, Prototype, Test, and Evaluation Plan, pg 19
+		Equipment
+	Administrative Content, pg 20
+		Budgeting and Finance
+		Initial Project Gantt Chart, pg 21
+	Project Roadmap and Milestones, pg 22
+		Spring Semester
+		Summer Semester, pg 23
+		Fall Semester
+
+PegasOS: Hardware, pg 24

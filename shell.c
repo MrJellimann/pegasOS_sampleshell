@@ -20,7 +20,7 @@ typedef enum Command
 {
 	CLEAR, TEXTPALETTE, BACKGROUNDPALETTE, USERCOLOR, DIRECTORYCOLOR,
 	MENUCOLOR, MENUCOLOR1, MENUCOLOR2, MENUCOLOR3, MENUCOLOR4,
-	DEBUG, USERNAME, LOGIN,
+	DEBUG, USERNAME, LOGIN, USER,
 
 	HELP, EXIT,
 	NUM_COMMANDS
@@ -61,6 +61,7 @@ const char* commandString(int index)
 		case DEBUG: strcpy(result, "debug"); break;
 		case USERNAME: strcpy(result, "username"); break;
 		case LOGIN: strcpy(result, "login"); break;
+		case USER: strcpy(result, "user"); break;
 
 
 		case HELP: strcpy(result, "help"); break;
@@ -284,13 +285,20 @@ void loginMenu()
 void userMenu()
 {
 	printf("\n");
-	printf("    === %s's Menu ===\n", currentUser.user);
-	printf("    [C]hange User Details\n");
-	printf("    [L]ogout\n");
-	printf("    [S]witch User\n");
-	printf("    [Q]uit\n");
+
+	printf("\033[38;5;%im", menuColor2);
+	printf("    === ");
+	printf("\033[38;5;%im", menuColor1);
+	printf("%s's Menu", currentUser.user);
+	printf("\033[38;5;%im", menuColor2);
+	printf(" ===\n");
+	endColor();
+
+	printMenuOption("[C]hange User Details");
+	printMenuOption("[L]ogout");
+	printMenuOption("[S]witch User");
+	printMenuOption("[Q]uit");
 	printf("\n");
-	selectionPrompt();
 }
 
 void userDetailsMenu()
@@ -581,7 +589,36 @@ void login()
 				fflush(stdin);
 				break;
 			default:
+				fgetc(stdin);
+				fflush(stdin);
+				printf("\n");
+				printMenuOption("Invalid selection. Please choose a valid selection.");
+				break;
+		}
+	}
+	while (select != 'q' && !exitFlag);
+}
 
+void user()
+{
+	char select;
+	int exitFlag = 0;
+
+	do
+	{
+		userMenu();
+		selectionPrompt();
+		select = tolower(fgetc(stdin));
+
+		switch (select)
+		{
+			case 'c':
+				break;
+			case 'l':
+				break;
+			case 's':
+				break;
+			default:
 				break;
 		}
 	}
@@ -607,8 +644,9 @@ void help()
 int main(void)
 {
 	// strcpy(user, "john_smith");
-	registry[numUsers++] = createUser("john_smith", "pass");
-	currentUser = registry[0];
+	registry[numUsers++] = createUser("master", "pass");
+	registry[numUsers++] = createUser("guest", "");
+	currentUser = registry[1];
 	separator = '@';
 	strcpy(directory, "root/home/desktop/");
 
@@ -676,6 +714,10 @@ int main(void)
 		else if (strcmp(command, commandString(LOGIN)) == 0)
 		{
 			login();
+		}
+		else if (strcmp(command, commandString(USER)) == 0)
+		{
+			user();
 		}
 		else if (strcmp(command, commandString(HELP)) == 0)
 		{
