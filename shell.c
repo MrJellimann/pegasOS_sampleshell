@@ -494,6 +494,7 @@ int existingUser()
 		{
 			select = tolower(fgetc(stdin));
 			fgetc(stdin); // Remove newline
+			fflush(stdin);
 
 			switch (select)
 			{
@@ -597,6 +598,58 @@ void login()
 		}
 	}
 	while (select != 'q' && !exitFlag);
+}
+
+void passChange()
+{
+
+}
+
+void usernameChange()
+{
+
+}
+
+void accessPermissions()
+{
+
+}
+
+void userDetails()
+{
+	char select;
+	int exitFlag = 0;
+
+	do
+	{
+		userDetailsMenu();
+		selectionPrompt();
+		select = tolower(fgetc(stdin));
+
+		switch (select)
+		{
+			case 'p':
+				passChange();
+				break;
+			case 'u':
+				usernameChange();
+				break;
+			case 'a':
+				accessPermissions();
+				break;
+			case 'b':
+				fgetc(stdin);
+				fflush(stdin);
+				exitFlag = 1;
+				break;
+			default:
+				printMenuOption("Invalid selection.\n");
+				fgetc(stdin);
+				fflush(stdin);
+				break;
+		}
+	}
+	while (select != 'b' || !exitFlag);
 }
 
 void user()
