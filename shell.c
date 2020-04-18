@@ -29,6 +29,7 @@ typedef enum Command
 User registry[TOTAL_USERS];
 
 int numUsers = 0;
+int masterUser = 0;
 int debug = DEBUG_DEFAULT;
 User currentUser;
 char directory[MAX_DIRECTORY_LENGTH];
@@ -322,10 +323,18 @@ void userDetailsMenu()
 void userPermissionsMenu()
 {
 	printf("\n");
-	printf("    === Permissions Menu ===\n");
-	printf("    [U]ser Level Permissions *\n");
-	printf("    [S]ystem Level Permissions\n");
-	printf("    [B]ack\n");
+	printMenuTitle("Permissions Menu");
+	if (masterUser)
+	{
+		printMenuOption("[U]ser Level Permissions");
+		printMenuOption("[S]ystem Level Permissions*");
+	}
+	else
+	{
+		printMenuOption("[U]ser Level Permissions*");
+		printMenuOption("[S]ystem Level Permissions");
+	}
+	printMenuOption("[B]ack");
 	printf("\n");
 }
 
@@ -751,7 +760,74 @@ void usernameChange()
 
 void accessPermissions()
 {
+	char select;
+	int exitFlag = 0;
 
+	do
+	{
+		userPermissionsMenu();
+		selectionPrompt();
+		select = tolower(fgetc(stdin));
+
+		switch (select)
+		{
+			case 'u':
+				fgetc(stdin);
+				fflush(stdin);
+				printf("    Permissions set to user-level.\n");
+				masterUser = 0;
+				break;
+			case 's':
+				fgetc(stdin);
+				fflush(stdin);
+				// Just trust me on this line
+				printf("    System Level Permissions allows the user full access over the system’s files and commands.\n");
+				printf("    Doing so may cause permanent system damage with negligent use of these commands, and as a result,\n");
+				printf("    you may lose all of your system settings and data. This will require a full system reinstallation\n");
+				printf("    and you will not get back the data that you lost.\n\n");
+				printf("    Are you sure you want to continue? [Y/N]\n");
+				selectionPrompt();
+				int madeChoice = 0;
+				
+				do
+				{
+					select = fgetc(stdin);
+
+					switch (select)
+					{
+						case 'y':
+							fgetc(stdin);
+							fflush(stdin);
+							masterUser = 1;
+							madeChoice = 1;
+							break;
+						case 'n':
+							fgetc(stdin);
+							fflush(stdin);
+							madeChoice = 1;
+							break;
+						default:
+							fgetc(stdin);
+							fflush(stdin);
+							break;
+					}
+				}
+				while (!madeChoice);
+
+				break;
+			case 'b':
+				fgetc(stdin);
+				fflush(stdin);
+				exitFlag = 1;
+				break;
+			default:
+				fgetc(stdin);
+				fflush(stdin);
+				printMenuOption("Invalid selection. Please choose a valid selection.");
+				break;
+		}
+	}
+	while (select != 'b' || !exitFlag);
 }
 
 void userDetails()
@@ -780,7 +856,26 @@ void userDetails()
 			case 'a':
 				fgetc(stdin);
 				fflush(stdin);
-				accessPermissions();
+				char mPass[MAX_INPUT_LENGTH];
+
+				printf("    master Password: ");
+				printf("\033[38;5;0m");
+				fgets(mPass, MAX_INPUT_LENGTH, stdin);
+				for (int i = 0; i < strlen(mPass); i++)
+				{
+					if (mPass[i] == '\n')
+						mPass[i] = '\0';
+				}
+				endColor();
+
+				if (strcmp(mPass, registry[0].pass) == 0)
+				{
+					accessPermissions();
+				}
+				else
+				{
+					printf("    Access denied.\n");
+				}
 				break;
 			case 'b':
 				fgetc(stdin);
