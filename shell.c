@@ -345,8 +345,11 @@ int newUser()
 	char select;
 
 	// Clear out stdin
-	fgetc(stdin); // Get rid of newline
-	fflush(stdin);
+	if (!feof(stdin))
+	{
+		fgetc(stdin); // Get rid of newline
+		fflush(stdin);
+	}
 
 	// Get Username
 	printf("\n");
@@ -609,7 +612,74 @@ void login()
 
 void passChange()
 {
+	char oPass[MAX_INPUT_LENGTH];
+	char nPass[MAX_INPUT_LENGTH];
+	char cPass[MAX_INPUT_LENGTH];
 
+	printf("    Enter old password: ");
+	printf("\033[38;5;0m");
+	fgets(oPass, MAX_INPUT_LENGTH, stdin);
+	for (int i = 0; i < strlen(oPass); i++)
+	{
+		if (oPass[i] == '\n')
+			oPass[i] = '\0';
+	}
+	endColor();
+
+	if (debug)
+	{
+		printf("Debug: old -> %s\n", oPass);
+		printf("Debug: cPass -> %s\n", currentUser.pass);
+	}
+
+	// Check password with old password
+	if (strcmp(oPass, currentUser.pass) == 0)
+	{
+		// Now get the new password
+		printf("    Enter new password: ");
+		printf("\033[38;5;0m");
+		fgets(nPass, MAX_INPUT_LENGTH, stdin);
+		for (int i = 0; i < strlen(nPass); i++)
+		{
+			if (nPass[i] == '\n')
+				nPass[i] = '\0';
+		}
+		endColor();
+
+		printf("    Confirm new password: ");
+		printf("\033[38;5;0m");
+		fgets(cPass, MAX_INPUT_LENGTH, stdin);
+		for (int i = 0; i < strlen(cPass); i++)
+		{
+			if (cPass[i] == '\n')
+				cPass[i] = '\0';
+		}
+		endColor();
+
+		if (strcmp(nPass, cPass) == 0)
+		{
+			printf("    New password set!\n");
+
+			strcpy(currentUser.pass, nPass);
+
+			// Update the registry file
+			for (int i = 0; i < numUsers; i++)
+			{
+				if (strcmp(registry[i].user, currentUser.user) == 0)
+				{
+					strcpy(registry[i].pass, nPass);
+				}
+			}
+		}
+		else
+		{
+			printf("    Passwords do not match. New password not set.\n");
+		}
+	}
+	else
+	{
+		printf("    Incorrect password entered. Please try again.\n");
+	}
 }
 
 void usernameChange()
