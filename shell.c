@@ -304,11 +304,18 @@ void userMenu()
 void userDetailsMenu()
 {
 	printf("\n");
-	printf("    === %s's Details ===\n", currentUser.user);
-	printf("    [P]assword Change\n");
-	printf("    [U]sername Change\n");
-	printf("    [A]ccess Permissions\n");
-	printf("    [B]ack\n");
+	printf("\033[38;5;%im", menuColor2);
+	printf("    === ");
+	printf("\033[38;5;%im", menuColor1);
+	printf("%s's Details", currentUser.user);
+	printf("\033[38;5;%im", menuColor2);
+	printf(" ===\n");
+	endColor();
+
+	printMenuOption("[P]assword Change");
+	printMenuOption("[U]sername Change");
+	printMenuOption("[A]ccess Permissions");
+	printMenuOption("[B]ack");
 	printf("\n");
 }
 
@@ -629,12 +636,18 @@ void userDetails()
 		switch (select)
 		{
 			case 'p':
+				fgetc(stdin);
+				fflush(stdin);
 				passChange();
 				break;
 			case 'u':
+				fgetc(stdin);
+				fflush(stdin);
 				usernameChange();
 				break;
 			case 'a':
+				fgetc(stdin);
+				fflush(stdin);
 				accessPermissions();
 				break;
 			case 'b':
@@ -643,7 +656,7 @@ void userDetails()
 				exitFlag = 1;
 				break;
 			default:
-				printMenuOption("Invalid selection.\n");
+				printMenuOption("Invalid selection. Please choose a valid selection.");
 				fgetc(stdin);
 				fflush(stdin);
 				break;
@@ -666,12 +679,30 @@ void user()
 		switch (select)
 		{
 			case 'c':
+				fgetc(stdin);
+				fflush(stdin);
+				userDetails();
 				break;
 			case 'l':
+				fgetc(stdin);
+				fflush(stdin);
+
+				// Logout current user and login guest
+				currentUser = registry[1];
+				exitFlag = 1;
 				break;
 			case 's':
+				// Existing user
+				exitFlag = existingUser();
+				break;
+			case 'q':
+				fgetc(stdin);
+				fflush(stdin);
 				break;
 			default:
+				printMenuOption("Invalid selection. Please choose a valid selection.");
+				fgetc(stdin);
+				fflush(stdin);
 				break;
 		}
 	}
