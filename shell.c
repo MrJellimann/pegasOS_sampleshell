@@ -684,7 +684,69 @@ void passChange()
 
 void usernameChange()
 {
+	char oPass[MAX_INPUT_LENGTH];
+	char nUser[MAX_INPUT_LENGTH];
+	char cUser[MAX_INPUT_LENGTH];
 
+	printf("    Enter password: ");
+	printf("\033[38;5;0m");
+	fgets(oPass, MAX_INPUT_LENGTH, stdin);
+	for (int i = 0; i < strlen(oPass); i++)
+	{
+		if (oPass[i] == '\n')
+			oPass[i] = '\0';
+	}
+	endColor();
+
+	if (debug)
+	{
+		printf("Debug: old -> %s\n", oPass);
+		printf("Debug: cPass -> %s\n", currentUser.pass);
+	}
+
+	// Check password with old password
+	if (strcmp(oPass, currentUser.pass) == 0)
+	{
+		// Now get the new password
+		printf("    Enter new username: ");
+		fgets(nUser, MAX_INPUT_LENGTH, stdin);
+		for (int i = 0; i < strlen(nUser); i++)
+		{
+			if (nUser[i] == '\n')
+				nUser[i] = '\0';
+		}
+
+		printf("    Confirm new username: ");
+		fgets(cUser, MAX_INPUT_LENGTH, stdin);
+		for (int i = 0; i < strlen(cUser); i++)
+		{
+			if (cUser[i] == '\n')
+				cUser[i] = '\0';
+		}
+
+		if (strcmp(nUser, cUser) == 0)
+		{
+			printf("    New username set!\n");
+
+			// Update the registry file
+			for (int i = 0; i < numUsers; i++)
+			{
+				if (strcmp(registry[i].user, currentUser.user) == 0)
+				{
+					strcpy(registry[i].user, nUser);
+					currentUser = registry[i];
+				}
+			}
+		}
+		else
+		{
+			printf("    Usernames do not match. New username not set.\n");
+		}
+	}
+	else
+	{
+		printf("    Incorrect password entered. Please try again.\n");
+	}
 }
 
 void accessPermissions()
