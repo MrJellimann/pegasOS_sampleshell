@@ -1,0 +1,154 @@
+notes
+
+256/16 = 
+
+f3a5 ba05 f300 2a12 3490 e491 f3ab d235 3c11 3786 8bb4 4632 f5f1 7fd2 0be9 0078 -> 16 bytes
+
+f3a5ba05f3002a123490e491f3abd2353c1137868bb44632f5f17fd20be90078 -> 32 chars
+
+if (int -> 4 chars)
+	-> 8 ints -> 256-bit hash
+
+PegasOS: Introduction, pg 4
+	Personal Motivation/Interests, pg 5
+	Broader Impacts, pg 7
+
+PegasOS: Legal, Ethical, and Technical, pg 9
+	Legal, Ethical, and Privacy Issues, pg 10
+		Legal - Licensing, pg 10
+		Legal - Source Code Usage
+		Legal - UCF and CECS Affiliation
+		Ethical & Privacy, pg 11
+	Technical Content, pg 12
+		Project Goal
+		Objectives
+		Specifications and Requirements
+			Must-Haves
+			Like-to-Haves, pg 13
+	Program and System Ideas, pg 14
+		Group Ideas
+		Christopher's Ideas
+		Jacob's Ideas, pg 15
+		Giancarlo's Ideas
+		Jacqueline's Ideas
+		Kenny's Ideas
+	Research, Design, and Planning, pg 16
+		Design Overview
+		Cross-Compiler, pg 17
+			Setting Up the Build for the Cross-Compiler
+			Setting Up the Prebuilt Cross-Compiler, pg 18
+	Build, Prototype, Test, and Evaluation Plan, pg 19
+		Equipment
+	Administrative Content, pg 20
+		Budgeting and Finance
+		Initial Project Gantt Chart, pg 21
+	Project Roadmap and Milestones, pg 22
+		Spring Semester
+		Summer Semester, pg 23
+		Fall Semester
+
+PegasOS: Hardware, pg 24
+	Raspberry Pi Hardware, pg 25
+	GPIO, pg 26
+	Bootloaders, pg 27
+	EEPROM, pg 29
+	Basic Kernel Test, pg 31
+	Drivers, pg 32
+	I/O, pg 34
+	Framebuffer, pg 35
+	Mailbox Peripheral
+	Translation Lookaside Buffer (TLB), pg 36
+	Page Table, pg 37
+	Page Coloring, pg 39
+	ARM Registers and General Research, pg 40
+	ARMv8 Processor States, pg 42
+	System Registers, pg 43
+	Endianness
+	Exception Handling
+	Caches, pg 45
+	Memory Management Unit, pg 46
+		Virtual to Physical
+		Access Permissions, pg 47
+		Cacheable Memory
+		Configuring the MMU, pg 48
+	Multi-Core Processors
+	I/O Manager, pg 49
+
+PegasOS: System, pg 51
+	Root Directory, pg 52
+	Root Directory Overview, pg 53
+	System Users, pg 56
+		User Subsystem
+		Log-In Menu, pg 57
+			Existing User, pg 58
+			New User, pg 61
+			Registry, pg 63
+			Quit
+		User Menu, pg 64
+			Change User Details
+			Logout, pg 66
+			Switch User
+			Quit
+	System Calls, pg 67
+		System Diagnostics
+		Process Creation and Deletion
+		Process Information, pg 68
+		File Manipulation, pg 69
+	Implementation of System Calls, pg 70
+
+PegasOS: Kernel, pg 72
+	Kernel Research, 
+	Kernel Design, pg 73
+	Kernel Components, pg 75
+		Scheduler
+		Program Execution, pg 78
+		Memory Manager, pg 81
+		Page Manager
+		Virtual Memory Manager
+	File Systems, pg 82
+		File System Research
+			FAT32
+			Boot Record, pg 83
+			BIOS Parameter Block (BPB), pg 84
+			Extended Boot Record, pg 85
+			File System Info Structure, pg 86
+			File Allocation Table
+			Directory, pg 87
+			Standard 8.3 Format, pg 88
+			Long File Names, pg 90
+			Ext2, pg 91
+			Base Superblock Fields, pg 93
+			Extended Superblock Fields, pg 94
+			Block Group Descriptor Table, pg 96
+			Block Group Descriptor Table Structure, pg 97
+			Inodes
+			Inode Data Structure, pg 98
+			Directories, pg 99
+			Directory Entry Structure, pg 100
+			Creating a Customized File System, pg 101
+		File System Design, pg 103
+
+PegasOS: Shell, pg 104
+	Shell Background Research, pg 105
+		What is a Shell?
+		Graphical User Interface (GUI)
+		Command Line Interface (CLI)
+		PegasOS Interface, pg 106
+		Common Shell Components, pg 107
+		Common Shell Commands, pg 109
+	Shell Commands for PegasOS, pg 113
+	Basic Shell Architecture, pg 119
+		Lexical Analysis
+		Parser, pg 120
+		Shell Architecture for PegasOS, pg 121
+		Process Flow, pg 122
+		Process Flow for Shell, pg 123
+	Shell Interactions with Kernel, pg 126
+
+PegasOS: Appendices, pg 127
+	Project Summary and Conclusions
+	Copyright
+	Data-Sheets
+	Software
+	Miscellaneous
+	References, pg 128
