@@ -1,0 +1,259 @@
+PegasOS: 1. Introduction									10
+1.1 Executive Summary										11
+1.2 Personal Motivation/Interests							12
+1.3 Broader Impacts											14
+
+PegasOS: 2. Legal, Ethical, and Technical					16
+2.1 Legal, Ethical, and Privacy Issues						17
+2.1.1 Legal - Licensing										
+2.1.2 Legal - Source Code Usage								
+2.1.3 Legal - UCF and CECS Affiliation						
+2.1.4 Ethical & Privacy										18
+
+PegasOS: 3. Technical Content								19
+3.1 Project-Specific Content								20
+3.1.1 Project Goal											
+3.1.2 Objectives											
+3.1.3 Specifications and Requirements						
+Must-Haves													
+Like-to-Haves												22
+3.2 Program and System Ideas								23
+3.2.1 Group Ideas											
+3.2.2 Christopher’s Ideas									
+3.2.3 Jacob’s Ideas											24
+3.2.4 Giancarlo’s Ideas										
+3.2.5 Jacqueline’s Ideas									
+3.2.6 Kenny’s Ideas											25
+3.3 Initial Research and Design								26
+3.3.1 Design Overview										
+3.3.2 Cross-Compiler										27
+3.3.3 Setting Up the Build for the Cross-Compiler			
+3.3.4 Setting Up the Prebuilt Cross-Compiler				28
+3.4 Build, Prototype, Test, and Release Plan				30
+3.4.1 Equipment												
+3.4.2 Prototypes											
+3.4.3 Building												31
+3.4.4 Testing												
+3.4.5 Shipping/Release										32
+3.4.6 Contributions											
+3.4.7 Source Code Modification								33
+
+PegasOS: 4. Hardware										34
+4.1 Raspberry Pi Hardware									35
+4.1.1 General-Purpose Input/Output (GPIO)					36
+4.1.2 Bootloaders											37
+4.1.3 EEPROM												39
+4.1.4 Basic Kernel Test										41
+4.1.5 Drivers												42
+4.1.6 I/O													43
+4.1.7 Framebuffer											45
+4.1.8 Mailbox Peripheral									
+4.1.9 Page Table											46
+4.1.10 Translation Lookaside Buffer (TLB)					48
+4.1.11 Page Coloring										49
+4.1.12 ARM Registers and General Research					50
+4.1.13 ARMv8 Processor States								52
+4.1.14 System Registers										53
+4.1.15 Endianness											
+4.1.16 Exception Handling									
+4.1.17 Multi-Core Processors								54
+4.1.18 Caches												55
+4.1.19 Cache Controller										56
+4.1.20 Cache Policies										
+4.1.21 Cache Maintenance									57
+4.1.22 Memory Management Unit								58
+4.1.23 Virtual to Physical									
+4.1.24 Access Permissions									59
+4.1.25 Cacheable Memory										
+4.1.26 Translating a Virtual Address to a Physical Address	
+4.1.27 Configuring the MMU									60
+4.2 I/O Manager												61
+
+System 														63
+
+5.1 System Directories 										64
+	PegasOS Root Directory
+	PegasOS Root Directory Overview							65
+
+5.2 System Set-Up 											68
+	System Language
+	System Location
+	System Keyboard Layout
+	System Date and Time									69
+	Master Password
+	Create New User
+
+5.3 System Localization 									70
+	International Localization
+	Localization File Standards
+	Loading Translated Text 								71
+	Localization Support									72
+
+5.4 System Username 										73
+	User Registry File 										
+	Usernames 												74
+	Username Storage
+	User Passwords
+	User Password Storage									77
+	User Permissions 										78
+
+5.5 User Subsystem 											79
+	5.5.1 Log-In Menu 										80
+		Existing User 										81
+		New User 											84
+		Registry 											86
+		Quit 												
+	5.5.2 User Menu 										87
+		Change User Details 								
+		Logout 												92
+		Switch User
+		Quit 												93
+
+5.6 System Calls 											94
+	System Diagnostics
+		get_clocktime()
+		set_clocktime()
+		set_clockzone()
+	Process Creation and Deletion 							95
+		p_clone()
+		p_destroy()
+		p_wait()
+	Process Information 									96
+		get_p_id()
+		get_p_name()
+		get_p_uptime()
+		set_p_id()
+		set_p_priority()
+	File Manipulation 										98
+		close()
+		open()
+		read()
+		write()
+		print()
+
+5.7 Implementation of System Calls 							99
+
+Kernel														102
+
+6.1 Kernel Design 											103
+
+6.2 Kernel Components 										106
+	Scheduler
+	Program Execution 										109
+	Interrupt Handler 										112
+	Memory Manager 											
+	Page Manager 											113
+	Virtual Memory Manager
+	Cache Management
+
+6.3 File Systems 											114
+	File System Research
+
+6.4 FAT32 													
+	Boot Record 											115
+	BIOS Parameter Block (BPB) 								116
+	Extended Boot Record 									117
+	File System Info Struture 								118
+	File Allocation Table 									119
+	Directory 												120
+	Standard 8.3 Format
+	Long File Names 										122
+
+6.5 Ext2 													123
+	Base Superblock Fields 									125
+	Extended Superblock Fields 								126
+	Block Group Descriptor Table 							127
+	Block Group Descriptor Table Structure 					128
+	Inodes
+	Inode Data Structure 									129
+	Directories 											130
+	Directory Entry Structure 								131
+	Creating a Customized File System 						132
+
+6.6 PegasOS File System Design 								135
+
+Shell 														139
+
+7.1 Shell Background Research 								140
+	What is a Shell?
+	Graphical User Interface (GUI)
+	Command Line Interface (CLI) 							141
+	PegasOS Interface
+	Common Shell Components 								142
+	Common Shell Commands 									144
+
+7.2 Shell Commands for PegasOS 								148
+	backgroundpalette
+	cd
+	clear
+	concat 													149
+	copy
+	createdir 												150
+	createfile
+	currentdir 												151
+	delete 													152
+	deletedir
+	echo
+	filespace 												153
+	find
+	head
+	hello 													154
+	login
+	mount
+	move 													155
+	power
+	systeminfo
+	tail 													156
+	tasklist
+	terminatetask 											157
+	textpalette
+	uninstall
+
+7.3 Basic Shell Architecture 								159
+	Lexical Analysis
+	Parser 													160
+	Shell Architecture for PegasOS 							161
+	Process Flow 											162
+	Process Flow for Shell 									163
+
+7.4 Shell Interactions with Kernel 							167
+
+Administrative Content 										168
+
+8.1 Budgeting and Finance 									169
+	Initial Project Gantt Chart 							170
+
+8.2 Project Roadmap and Milestones 							171
+	Spring Semester
+	Summer Semester (Original Schedule) 					172
+	Fall Semester (Original Schedule)
+
+8.3 COVID-19 												173
+	Remainder of Spring Semester
+	Summer (May - Mid August)
+	Fall (Late August - Early December) 					174
+
+8.4 Project Summary and Conclusions 						176
+	Summary
+	Conclusions 											177
+
+Appendices 													178
+
+9.1 Copyright 												179
+	KnightOS
+	PegasOS
+	GNU General Public License								180
+
+9.2 Software 												193
+	Diagrams
+	Source Code and Documentation
+	Discord 												194
+
+9.3 Miscellaneous 											195
+	Hashing Algorithm
+
+References 													196
+
+10.1 References 											197
+
+10.2 Uncategorized References 								201

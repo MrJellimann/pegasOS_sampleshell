@@ -9,6 +9,11 @@ f3a5ba05f3002a123490e491f3abd2353c1137868bb44632f5f17fd20be90078 -> 32 chars
 if (int -> 4 chars)
 	-> 8 ints -> 256-bit hash
 
+We need:
+	Delete User
+	Localization Files
+		How do we do that????
+
 PegasOS: Introduction, pg 4
 	Personal Motivation/Interests, pg 5
 	Broader Impacts, pg 7
